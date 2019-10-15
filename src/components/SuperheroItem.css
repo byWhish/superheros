@@ -1,0 +1,30 @@
+.itemWrapper {
+    display: flex;
+    flex-direction: row;
+    width: 98%;
+    height: 150px;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.textNode {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.checkNode {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+label {
+    color: #f92672;
+}
+
+input {
+    background-color:  #272822;
+    color: #fd971f;
+}
