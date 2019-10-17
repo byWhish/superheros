@@ -132,7 +132,20 @@ const App = () => {
                     <button style={{ width: '200px' }} onClick={handleSaveFileClick}>Save to file</button>
                 </div>
                 <div className="heroList">
-                    <JSONPretty data={Array.from(items).map(([,value]) => value).sort((a,b) => parseInt(a.order, 10) - parseInt(b.order,10))} theme={JSONPrettyMon} style={{ width: '100%'}}/>
+                    <JSONPretty
+                        data={Array.from(items).map(([,value]) => value)
+                            .sort((a,b) => parseInt(a.order, 10) - parseInt(b.order,10))
+                            .map(value => {
+                                const proxyValue = { ...value, options: { ...value.options } };
+                                delete(proxyValue.order);
+                                delete(proxyValue.options.AR);
+                                delete(proxyValue.options.PY);
+                                delete(proxyValue.options.UY);
+                                return proxyValue;
+                            })}
+                        theme={JSONPrettyMon}
+                        style={{ width: '100%'}}
+                    />
                 </div>
             </div>
             </div>
