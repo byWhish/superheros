@@ -2,7 +2,7 @@ import React, { useReducer, useCallback, useState, useEffect } from 'react';
 import './App.css';
 import SuperheroItem from "./components/SuperheroItem";
 import nanoid from 'nanoid';
-import ReactJson from 'react-json-view'
+// import ReactJson from 'react-json-view'
 import JSONPretty from 'react-json-pretty';
 import JSONPrettyMon from 'react-json-pretty/dist/monikai';
 import { saveAs } from 'file-saver';
