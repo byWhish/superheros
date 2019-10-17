@@ -84,3 +84,8 @@ textarea {
   background: #202020;
   padding-right: 5px;
 }
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+}

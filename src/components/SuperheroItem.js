@@ -42,7 +42,18 @@ const SuperheroItem = ({ hero, onChange, id, onOptionChange, onDeleteHero }) => 
                     <label>order</label>
                 </div>
             </div>
-            <button onClick={onDeleteHero(id)}>Remove</button>
+            <div className="checkNode">
+                <div className="option">
+                    <input type="checkbox" checked={hero.options.AR} onChange={onOptionChange('AR', id)}/><label>AR</label>
+                </div>
+                <div className="option">
+                    <input type="checkbox" checked={hero.options.UY} onChange={onOptionChange('UY', id)}/><label>UY</label>
+                </div>
+                <div className="option">
+                    <input type="checkbox" checked={hero.options.PY} onChange={onOptionChange('PY', id)}/><label>PY</label>
+                </div>
+                <button onClick={onDeleteHero(id)}>Remove</button>
+            </div>
         </div>
     )
 };
