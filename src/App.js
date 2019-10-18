@@ -105,7 +105,7 @@ const App = () => {
                 delete(proxyValue.options.UY);
                 return proxyValue;
         }), null, 2)], {type: "text/plain;charset=utf-8"});
-        saveAs(blob, `superhero-es-${region}.txt`);
+        saveAs(blob, `superhero-es-${region}.json`);
     }, [items]);
 
     const handleSaveFileClick = useCallback(() => {
