@@ -2,6 +2,7 @@
   "name": "superheros",
   "version": "0.1.0",
   "private": true,
+  "descripotion": "Superheros backoffice",
   "dependencies": {
     "file-saver": "^2.0.2",
     "nanoid": "^2.1.3",
