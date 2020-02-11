@@ -7,6 +7,14 @@ import JSONPretty from 'react-json-pretty';
 import JSONPrettyMon from 'react-json-pretty/dist/monikai';
 import { saveAs } from 'file-saver';
 
+const regionsTable = [
+    { label: 'AR', value: 1 },
+    { label: 'PY', value: 500242 },
+    { label: 'UY', value: 222 },
+    { label: 'Lite', value: 500222 },
+    { label: 'Dibox', value: 500342 },
+];
+
 const empty = {
     id: "",
     order: "",
@@ -20,9 +28,11 @@ const empty = {
         showTitle: false,
         showMobile: false,
         showWeb: false,
-        AR: true,
-        PY: true,
-        UY: true,
+        AR: false,
+        PY: false,
+        UY: false,
+        Lite: false,
+        Dibox: false,
     }
 };
 
@@ -64,7 +74,7 @@ const App = () => {
     }, [url]);
 
     const handleAddHero = useCallback(() => {
-        dispatchItem({ value: {...empty}, id: nanoid(4), type: 'save'})
+        dispatchItem({ value: {...empty, options: { ...empty.options }}, id: nanoid(4), type: 'save'})
     }, []);
 
     const handleDeleteHero = useCallback((id) => () => {
@@ -99,10 +109,12 @@ const App = () => {
             .filter(value => value.options[region])
             .map((value) => {
                 const proxyValue = { ...value, options: { ...value.options } };
+                const regions = regionsTable.filter( r => proxyValue.options[r.label]).map( s => s.value);
                 delete(proxyValue.order);
                 delete(proxyValue.options.AR);
                 delete(proxyValue.options.PY);
                 delete(proxyValue.options.UY);
+                proxyValue.options.regions = regions;
                 return proxyValue;
         }), null, 2)], {type: "text/plain;charset=utf-8"});
         saveAs(blob, `superhero-es-${region}.json`);
@@ -137,10 +149,14 @@ const App = () => {
                             .sort((a,b) => parseInt(a.order, 10) - parseInt(b.order,10))
                             .map(value => {
                                 const proxyValue = { ...value, options: { ...value.options } };
+                                const regions = regionsTable.filter( r => proxyValue.options[r.label]).map( s => s.value);
                                 delete(proxyValue.order);
                                 delete(proxyValue.options.AR);
                                 delete(proxyValue.options.PY);
                                 delete(proxyValue.options.UY);
+                                delete(proxyValue.options.Lite);
+                                delete(proxyValue.options.Dibox);
+                                proxyValue.options.regions = regions;
                                 return proxyValue;
                             })}
                         theme={JSONPrettyMon}

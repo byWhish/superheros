@@ -32,6 +32,12 @@ const SuperheroItem = ({ hero, onChange, id, onOptionChange, onDeleteHero }) => 
                     <input type="checkbox" checked={hero.options.showMobile} onChange={onOptionChange('showMobile', id)}/><label>mobile</label>
                 </div>
                 <div className="option">
+                    <input type="checkbox" checked={hero.options.showAndroid} onChange={onOptionChange('showAndroid', id)}/><label>android</label>
+                </div>
+                <div className="option">
+                    <input type="checkbox" checked={hero.options.showIOS} onChange={onOptionChange('showIOS', id)}/><label>IOS</label>
+                </div>
+                <div className="option">
                     <input type="checkbox" checked={hero.options.showTitle} onChange={onOptionChange('showTitle', id)}/><label>title</label>
                 </div>
                 <div className="option">
@@ -51,6 +57,12 @@ const SuperheroItem = ({ hero, onChange, id, onOptionChange, onDeleteHero }) => 
                 </div>
                 <div className="option">
                     <input type="checkbox" checked={hero.options.PY} onChange={onOptionChange('PY', id)}/><label>PY</label>
+                </div>
+                <div className="option">
+                    <input type="checkbox" checked={hero.options.Lite} onChange={onOptionChange('Lite', id)}/><label>Lite</label>
+                </div>
+                <div className="option">
+                    <input type="checkbox" checked={hero.options.Dibox} onChange={onOptionChange('Dibox', id)}/><label>Dibox</label>
                 </div>
                 <button onClick={onDeleteHero(id)}>Remove</button>
             </div>
