@@ -38,6 +38,9 @@ const SuperheroItem = ({ hero, onChange, id, onOptionChange, onDeleteHero }) => 
                     <input type="checkbox" checked={hero.options.showIOS} onChange={onOptionChange('showIOS', id)}/><label>IOS</label>
                 </div>
                 <div className="option">
+                    <input type="checkbox" checked={hero.options.showSmartTV} onChange={onOptionChange('showSmartTV', id)}/><label>SmartTV</label>
+                </div>
+                <div className="option">
                     <input type="checkbox" checked={hero.options.showTitle} onChange={onOptionChange('showTitle', id)}/><label>title</label>
                 </div>
                 <div className="option">

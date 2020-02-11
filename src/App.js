@@ -28,6 +28,7 @@ const empty = {
         showTitle: false,
         showMobile: false,
         showWeb: false,
+        showSmartTV: false,
         AR: false,
         PY: false,
         UY: false,
